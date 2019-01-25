@@ -1,15 +1,13 @@
 $(document).ready(function() {
     
-    
     //Toggle Form and Autofocus Textarea
     $( "#nav-bar .compose" ).click(function() {
         $(".new-tweet").slideToggle("fast");
-        $("textarea").focus();
+        $(".new-tweet #pseudo-textarea").focus();
     });
 
 
     $(".new-tweet #pseudo-textarea").keyup(function() {
-        //console.log($(this))
         let $elm = $(this);
         let text = $elm.text();
         let textCount = 140 - $elm.text().length;
@@ -18,27 +16,31 @@ $(document).ready(function() {
         $elm.siblings("input").val($elm.text());
         updateCounterColor($elm, textCount);
 
+        
         if(textCount < 0) {
             let extra = text.substring(140)
-            let textWithNoExtra = text.substring(0, 140)
-            console.log("Extra", extra)
-            console.log("No extra", textWithNoExtra)
-
-            //$elm.focus();
+            textWithNoExtra = text.substring(0, 140)
+        
+            //renders text without extra characters from childNode
             $elm.contents().get(0).nodeValue = textWithNoExtra
+
+
             // render extra
+            //if element does not exist
+            if(!$('.extra').length){
+                $elm.append('<em class="extra"></em>');
+            }
+            //Empty element and add text to it 
             $(".extra").empty();
             $(".extra").text(extra);
             let element = document.getElementById('pseudo-textarea')
-            console.log(element)
             placeCaretAtEnd(element)
         }
-
-
-
     });
 });
 
+
+//Function that returns cursor to the end of string 
 function placeCaretAtEnd(el) {
     el.focus();
     if (typeof window.getSelection != "undefined"

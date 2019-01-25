@@ -5,6 +5,35 @@
  */
 
 
+ //Calculates time since
+function timeSince(date) {
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = Math.floor(seconds / 31536000);
+
+  if (interval > 1) {
+    return interval + " years";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " months";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " days";
+  }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " hours";
+  }
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
+}
+
  //Preventing XSS with Escaping
  function escape(str) {
   var div = document.createElement('div');
@@ -12,9 +41,10 @@
   return div.innerHTML;
 }
 
+
 //Creates tweet and returns HTML
 function createTweetElement(tweet){
-
+var $time = timeSince(tweet.created_at);
   return `<article class=\"tweet\">\
          <header><div class=\"avatar\"><img src="${tweet.user.avatars.regular}"></div>\
        <h2>${tweet.user.name}</h2>\
@@ -23,7 +53,7 @@ function createTweetElement(tweet){
      <p class=\"ml-6\">${escape(tweet.content.text)}</p>\
      <hr>\
      <footer class=\"ml-6\">\
-     ${tweet.created_at}\
+     ${$time}\
        <div class=\"actions\">\
          <i class=\"fas fa-heart\"></i>\
          <i class=\"fas fa-retweet\"></i>\
@@ -42,12 +72,11 @@ function createTweetElement(tweet){
     }
  }
 
-
 //AJAX GET REQUEST: renders all the tweets from the /tweets url
 function loadTweets() {
   $.ajax('http://localhost:8080/tweets', { method: 'GET' })
   .done((response) => {
-    console.log(response);
+    
     renderTweets(response);
   })
   .fail(() => {
@@ -83,6 +112,10 @@ $(document).ready(function() {
         data: form.serialize(), // serializes the form's elements.
         success: function(){ 
           loadTweets();
+          $(".new-tweet #pseudo-textarea").text("");
+          $('.counter').text('140');
+
+
         }
       });
     }

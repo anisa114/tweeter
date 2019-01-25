@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
@@ -19,43 +20,6 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-    
-
-    <style>
-			.hwt-container {
-				background-color: #f8f9fa;
-			}
-
-			.hwt-content {
-				width: 760px;
-				height: 100px;
-				padding: 20px;
-				border: 1px solid #adb5bd;
-				color: inherit;
-				font: 18px/25px 'Droid Sans Mono', sans-serif;
-			}
-
-			.hwt-input:focus {
-				outline-color: #495057;
-			}
-
-			.hwt-content mark {
-				border-radius: 3px;
-				background-color: #d0bfff;
-			}
-
-			.hwt-content mark.red {
-				background-color: #ffc9c9;
-			}
-
-			.hwt-content mark.blue {
-				background-color: #a3daff;
-			}
-
-			.hwt-content mark.yellow {
-				background-color: #ffec99;
-			}
-		</style>
 
   </head>
 
@@ -74,7 +38,8 @@
               <hr>
               <form action="/tweets" method="POST">
                 <input type="hidden" id="tweet" name="text"/>
-                <div id="pseudo-textarea" name="text" placeholder="What are you humming about?" contenteditable><em class="extra"></em></div>
+                <div id="pseudo-textarea" name="text" placeholder="What are you humming about?" contenteditable>
+                </div>
                 <button type="submit">Tweet</button>
                 <span class="error" >Error</span>
                 <span class="counter">140</span>
