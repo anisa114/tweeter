@@ -2,12 +2,11 @@
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
-
  */
 
 
  //Preventing XSS with Escaping
-function escape(str) {
+ function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -65,7 +64,9 @@ $(document).ready(function() {
   $(".new-tweet form").submit(function(event) {
     event.preventDefault(); // avoid to execute the actual submit of the form.
     var form = $(this);
-    var formBody= $("textarea", form).val();
+    var formBody = $("input", form).val()
+    console.log(formBody)
+
     if(!formBody){
       $(".error").addClass("select").text("Error: Field is empty");
 
