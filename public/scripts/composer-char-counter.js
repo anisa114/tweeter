@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     //Toggle Form and Autofocus Textarea
     $( "#nav-bar .compose" ).click(function() {
@@ -18,9 +17,9 @@ $(document).ready(function() {
 function updateCounterColor(elm, count){
     elm.siblings('.counter').text(count);
     if(count < 0){
-        elm.siblings('.counter').css('color', 'red');
+        elm.siblings('.counter').addClass("counter_color");
     }
     else {
-        elm.siblings('.counter').css('color', '#244751');
+        elm.siblings('.counter').removeClass("counter_color");
     }
 }

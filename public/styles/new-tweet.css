@@ -31,6 +31,10 @@ hr  {
     float:right;
 }
 
+.counter_color{
+    color:red;
+}
+
 article.tweet   {
     border:1px solid black;
     border-radius: 8px;
@@ -83,6 +87,15 @@ article.tweet footer    {
     display:none;
 }
 
+.actions i  {
+    margin-left:30px;
+}
+
+
+.fas.fa-heart:hover {
+    color:red;
+}
+
 article.tweet:hover .actions{
     display:inline;
 }
@@ -110,4 +123,12 @@ article.tweet:hover .actions{
 
 .select {
     display:inline;
+}
+
+.actions span   {
+    margin-left:2px;
+}
+
+.like_button{
+    color:red;
 }
