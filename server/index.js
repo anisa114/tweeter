@@ -10,6 +10,22 @@ const app           = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+<<<<<<< HEAD
+=======
+
+//Modified server/index.js to remove the in-memory db. 
+//Instead, connected to Mongo
+//passed the Mongo db into the server/lib/data-helpers.js factory function instead.
+
+const {MongoClient} = require("mongodb");
+const MONGODB_URI = "mongodb://localhost:27017/tweeter";
+
+MongoClient.connect(MONGODB_URI, (err, db) => {
+  if (err) {
+    console.error(`Failed to connect: ${MONGODB_URI}`);
+    throw err;
+  }
+>>>>>>> updated_version
 
 //Modified server/index.js to remove the in-memory db. 
 //Instead, connected to Mongo
@@ -39,6 +55,8 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
   // Mount the tweets routes at the "/tweets" path prefix:
   app.use("/tweets", tweetsRoutes);
+});
+
 });
 
 app.listen(PORT, () => {

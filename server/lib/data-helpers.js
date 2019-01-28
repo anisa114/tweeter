@@ -1,5 +1,4 @@
 "use strict";
-
 // Simulates the kind of delay we see with network or filesystem operations
 const simulateDelay = require("./util/simulate-delay");
 
@@ -16,7 +15,6 @@ module.exports = function makeDataHelpers(db) {
         callback(null, newTweet);
       });
     },
-    
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {
       db.collection("tweets").find().toArray((err, tweets) => {

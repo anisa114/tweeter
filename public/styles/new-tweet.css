@@ -12,126 +12,129 @@
     padding:2px;
     resize: both;
     width:100%;
-    background-color: white;
+}
+
+div.container   {
+   padding:10px;
+   border-radius: 10px;
+   background-color: lightgray;
+   border:0.5px solid darkgray;
+}
+
+h2  {
+    margin-bottom: 0px;
+}
+
+hr  {
+    margin-top:0;
+    margin-bottom: 20px;
+    height: 0;
+    border: none;
+    border-top: 1px solid black;
+}
+
+.counter    {
+    float:right;
+}
+
+.counter_color{
+    color:red;
+}
+
+article.tweet   {
+    border:1px solid black;
+    border-radius: 8px;
+    overflow:hidden;
+    opacity: 0.5;
+    margin-bottom:20px;
+}
+
+article.tweet:hover {
+    opacity: 1;
+}
+
+.tweets-container   {
+    padding : 5px 2em;
+}
+
+article.tweet header    {
+    background-color: lightgray;
+    padding-top:5px;
+    padding-bottom: 30px;
+}
+
+article.tweet header h2 {
+    display : inline;
+}
+
+article.tweet header span   {
+   float: right;
+   margin-right:15px;
+   font-size: 80%;
+}
+
+article.tweet hr    {
+    border-top: 1px solid black;
     margin-bottom:5px;
-    }
-    
-    div.container   {
-       padding:10px;
-       border-radius:10px;
-       background-color: lightgray;
-       border:0.5px solid darkgray;
-    }
-    
-    h2  {
-        margin-bottom: 0px;
-    }
-    
-    hr  {
-        margin-top:0;
-        margin-bottom:20px;
-        height:0;
-        border: none;
-        border-top:1px solid black;
-    }
-    
-    .counter    {
-        float:right;
-    }
-    
-    article.tweet   {
-        border:1px solid black;
-        border-radius:8px;
-        overflow: hidden;
-        opacity:0.5;
-        margin-bottom:20px;
-    }
-    
-    article.tweet:hover {
-        opacity:1;
-    }
-    
-    .tweets-container   {
-        padding :5px 2em;
-    }
-    
-    article.tweet header    {
-        background-color: lightgray;
-        padding-top:5px;
-        padding-bottom:30px;
-    }
-    
-    article.tweet header h2 {
-        display : inline;
-    }
-    
-    article.tweet header span   {
-       float: right;
-       margin-right:15px;
-       font-size:80%;
-    }
-    
-    article.tweet hr    {
-        border-top:1px solid black;
-        margin-bottom:5px;
-    }
-    
-    article.tweet footer    {
-        font-size:80%;
-    }
-    
-    .ml-6   {
-        margin-left:15px;
-        line-height:2.5;
-    }
-    
-    .actions    {
-        float: right;
-        margin-right:30px;
-        display: none;
-    }
+}
 
-    .actions i  {
-        margin-left:30px;
-    }
+article.tweet footer    {
+    font-size: 80%;
+}
 
-    .fas.fa-heart:hover {
-        color:red;
-    }
-    
-    article.tweet:hover .actions    {
-        display: inline;
-    }
-    
-    .avatar img {
-        width:60px;
-        height:55px;
-        border-radius:5px;
-        float: left;
-        padding-top:0px;
-        margin-right:10px;
-        margin-left:5px;
-    }
-    
-    .error  {
-        width:100%;
-        padding:0 5px;
-        background-color: #900;
-        color:white;
-        font-size:80%;
-        box-sizing: border-box;
-        display: none;
-        margin-left:11px;
-    }
-    
-    .select {
-        display: inline;
-    }
+.ml-6   {
+    margin-left: 15px;
+    line-height: 2.5;
+}
 
-     .extra {
-        background-color: #ffb8c2;
-    }
+.actions    {
+    float:right;
+    margin-right:5px;
+    display:none;
+}
 
-    .actions span   {
-        margin-left:2px;
-    }
+.actions i  {
+    margin-left:30px;
+}
+
+
+.fas.fa-heart:hover {
+    color:red;
+}
+
+article.tweet:hover .actions{
+    display:inline;
+}
+
+.avatar img {
+    width:60px;
+    height:55px;
+    border-radius: 5px;
+    float:left;
+    padding-top:0px;
+    margin-right:10px;
+    margin-left:5px;
+}
+
+.error  {
+    width  : 100%;
+    padding: 0 5px;
+    background-color: #900;
+    color:white;
+    font-size: 80%;
+    box-sizing: border-box;
+    display:none;
+    margin-left:11px;
+}
+
+.select {
+    display:inline;
+}
+
+.actions span   {
+    margin-left:2px;
+}
+
+.like_button{
+    color:red;
+}
