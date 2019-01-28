@@ -10,8 +10,6 @@ const app           = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-<<<<<<< HEAD
-=======
 
 //Modified server/index.js to remove the in-memory db. 
 //Instead, connected to Mongo
@@ -25,7 +23,6 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     console.error(`Failed to connect: ${MONGODB_URI}`);
     throw err;
   }
->>>>>>> updated_version
 
 //Modified server/index.js to remove the in-memory db. 
 //Instead, connected to Mongo
