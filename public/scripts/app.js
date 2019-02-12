@@ -5,37 +5,7 @@
  */
   //Calculates time since
  //https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site
-function timeSince(date) {
-
-  var seconds = Math.floor((new Date() - date) / 1000);
-
-  var interval = Math.floor(seconds / 31536000);
-
-  if (interval > 1) {
-    return interval + " years";
-  }
-  interval = Math.floor(seconds / 2592000);
-  if (interval > 1) {
-    return interval + " months";
-  }
-  interval = Math.floor(seconds / 86400);
-  if (interval > 1) {
-    return interval + " days";
-  }
-  interval = Math.floor(seconds / 3600);
-  if (interval > 1) {
-    return interval + " hours";
-  }
-  interval = Math.floor(seconds / 60);
-  if (interval > 1) {
-    return interval + " minutes";
-  }
-  return Math.floor(seconds) + " seconds";
-}
-
- //Calculates time since
- //https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site
-function timeSince(date) {
+ function timeSince(date) {
 
   var seconds = Math.floor((new Date() - date) / 1000);
 
@@ -69,7 +39,6 @@ function timeSince(date) {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
 }
-
 
 //Creates tweet and returns HTML
 function createTweetElement(tweet){
@@ -113,19 +82,7 @@ function createTweetElement(tweet){
       $(".tweets-container").prepend($tweet); 
     });
  }
-  
 
- //Handles click on like icon
- function handleClick(element)  {
-      let id = $(element).attr("id");
-      if($(`#${id}`).text().length > 0 ){
-           $(`#${id}`).text("");
-          $(`#${id}`).css("color", "gray");
-      } else  {
-          $(`#${id}`).text(" 1");
-          $(`#${id}`).css("color", "red");
-      }
-  }
 
 //AJAX GET REQUEST: renders all the tweets from the /tweets url
 function loadTweets() {
@@ -138,38 +95,16 @@ function loadTweets() {
   });
 }
 
- //Renders tweets
-  function renderTweets(tweetObjects){
-      $(".tweets-container").empty();
-      tweetObjects.forEach((tweetObject) => {
-        var $tweet = createTweetElement(tweetObject);
-        $(".tweets-container").prepend($tweet); 
-      });
-  }
-
-//AJAX GET REQUEST: renders all the tweets from the /tweets url
-  function loadTweets() {
-    $.ajax('http://localhost:8080/tweets', { method: 'GET' })
-    .done((response) => {
-      
-      renderTweets(response);
-    })
-    .fail(() => {
-      console.err('The call failed');
-    });
-  }
 
 $(document).ready(function() {
-  
   loadTweets();
 
   //AJAX POST REQUEST: posts the form data in the /tweets.
-  //this is the selector of the form
+  // this is the selector of the form
   $(".new-tweet form").submit(function(event) {
     event.preventDefault(); // avoid to execute the actual submit of the form.
     var form = $(this);
-    var formBody = $("input", form).val();
-  
+    var formBody= $("textarea", form).val();
     if(!formBody){
       $(".error").addClass("select").text("Error: Field is empty");
 
@@ -183,8 +118,8 @@ $(document).ready(function() {
       $.ajax({
         type: "POST",
         url: url,
-        data: form.serialize(), //serializes the form's elements.
-        success: function() { 
+        data: form.serialize(), // serializes the form's elements.
+        success: function(){ 
           loadTweets();
           $("textarea").val(" ");
           $('.counter').text('140');
